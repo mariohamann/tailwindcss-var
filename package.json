@@ -1,0 +1,23 @@
+{
+  "name": "@mariohamann/tailwindcss-var",
+  "version": "0.1.0",
+  "description": "This plugin allows to create and use scoped CSS variables for colors and spacings in your Tailwind CSS project.",
+  "main": "src/index.js",
+  "keywords": [
+    "tailwindcss",
+    "css",
+    "variables"
+  ],
+  "author": "Mario Hamann",
+  "repository": "https://github.com/mariohamann/tailwindcss-var",
+  "license": "MIT",
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  }
+}

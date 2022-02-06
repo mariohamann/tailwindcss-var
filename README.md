@@ -12,9 +12,9 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 
 1. Add package to your project e. g. `npm install @mariohamann/tailwindcss-var`.
 2. Add the plugin to your `tailwind.config.js` with `require('@mariohamann/tailwindcss-var')`.
-3. Add the following color variables to your `tailwind.config.js` (or change them to your needs as described at the bottom):
+3. Add the following color variables to your `tailwind.config.js` (or change them to your needs as described [below](#modify-color-variables)):
 
-```json
+```js
 {
   theme: {
     extend: {
@@ -62,22 +62,25 @@ The buttons in the first, second and third row share the exact same styles, only
   <button class="var-600-.../20 text-var-600 bg-var-50 border-var-50 ..." Disabled>...</button>
 </div>
 ```
+
 ### Example 3: Sizes
 The divs share the exact same styles, only the variable var-... is filled by var-8, var-12 etc.
 
 <img width="635" alt="Screen Shot 2022-02-06 at 22 46 19" src="https://user-images.githubusercontent.com/26542182/152702724-7b52e18a-6821-42ca-add9-7c7320ee27b0.png">
+
 ```html
 <div class="var-spacing-... w-var h-var ...">...</button>
 ```
+
 ### Example 4: Arbitrary values
 You can use arbitrary values as well for setting as for getting variables. In the example height and roundedness resize perfectly with the element's width.
 
 <img width="635" alt="Screen Shot 2022-02-06 at 22 46 39" src="https://user-images.githubusercontent.com/26542182/152702722-e981a907-b94d-4cce-b7c2-1e5fdc92d93a.png">
 
-### modify color variables
-If you use default color definitions your theme should be extended with the following:
+## Modify color variables
+If you use Tailwind's default color definitions, your theme should be extended with the following (as described above):
 
-```json
+```js
 {
   theme: {
     extend: {
@@ -100,9 +103,9 @@ If you use default color definitions your theme should be extended with the foll
 }
 ```
 
-If have other color definitions you'd like to use with variables, just extend the vars in your theme e. g.: 
+If have other color definitions you want to use with variables, just extend the `var`-definitions in your theme e. g.: 
 
-```json
+```js
 {
   theme: {
     extend: {
@@ -125,4 +128,4 @@ If have other color definitions you'd like to use with variables, just extend th
 }
 ```
 
-In the future there will color variables per default which you'll be able to overwrite.
+In the future the plugin will set default color variables which you'll be able to overwrite.

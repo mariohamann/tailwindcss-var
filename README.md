@@ -6,7 +6,7 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 
 ## Please read ❤️
 - ⚠️ This plugin expects you to use Tailwind CSS >2.0 || >3.0 with JIT mode enabled.
-- This is the first version of the plugin. Please be aware of changes in future.
+- This is the second version of the plugin. Please be aware of changes in future.
 - The plugin works best with the default color variations of Tailwind CSS (50, 100, ..., 800, 900). If you want to use other variable variations, you'll find some basic instructions below.
 ## Installation
 
@@ -19,7 +19,7 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
   theme: {
     extend: {
       colors: {
-        var: {
+        '$color': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
           200: 'var(--tw-var-color-200)',
@@ -45,7 +45,7 @@ Every button shares the same classes besides the class var-... which is filled b
 <img width="635" alt="Screen Shot 2022-02-06 at 22 46 04" src="https://user-images.githubusercontent.com/26542182/152702725-3a6b8821-fc90-4325-bed2-b184058b662f.png">
 
 ```html
-<button class="var-... text-var-600 bg-var-50 border-var-600 hover:bg-var-100 focus:ring-var-500 ...">...</button>
+<button class="$color-... text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
 ```
 
 ### Example 2: Hierarchy and subvalues
@@ -55,21 +55,21 @@ The buttons in the first, second and third row share the exact same styles, only
 <img width="635" alt="Screen Shot 2022-02-06 at 22 45 44" src="https://user-images.githubusercontent.com/26542182/152702727-5fb169bc-5754-4651-9c46-06c59626a917.png">
 
 ```html
-<div class="var-...">
-  <button class="text-white bg-var-600 border-var-800 hover:bg-var-700 focus:ring-var-500 ...">...</button>
-  <button class="text-var-600 bg-var-50 border-var-600 hover:bg-var-100 focus:ring-var-500 ...">...</button>
-  <button class="text-var-600 bg-var-50 border-var-50 hover:bg-var-100 focus:ring-var-500 ...">...</button>
-  <button class="var-600-.../20 text-var-600 bg-var-50 border-var-50 ..." Disabled>...</button>
+<div class="$color-...">
+  <button class="text-white bg-$color-600 border-$color-800 hover:bg-$color-700 focus:ring-$color-500 ...">...</button>
+  <button class="text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
+  <button class="text-$color-600 bg-$color-50 border-$color-50 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
+  <button class="$color-600-.../20 text-$color-600 bg-$color-50 border-$color-50 ..." Disabled>...</button>
 </div>
 ```
 
 ### Example 3: Sizes
-The divs share the exact same styles, only the variable var-... is filled by var-8, var-12 etc.
+The divs share the exact same styles, only the variable $spacing-... is filled by $spacing-8, $spacing-12 etc.
 
 <img width="635" alt="Screen Shot 2022-02-06 at 22 46 19" src="https://user-images.githubusercontent.com/26542182/152702724-7b52e18a-6821-42ca-add9-7c7320ee27b0.png">
 
 ```html
-<div class="var-spacing-... w-var h-var ...">...</button>
+<div class="$spacing-... w-$spacing h-$spacing ...">...</button>
 ```
 
 ### Example 4: Arbitrary values
@@ -85,7 +85,7 @@ If you use Tailwind's default color definitions, your theme should be extended w
   theme: {
     extend: {
       colors: {
-        var: {
+        '$color': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
           200: 'var(--tw-var-color-200)',
@@ -118,7 +118,7 @@ If have other color definitions you want to use with variables, just extend the 
           light: 'FF88FF',
           dark: '#FF00FF',
         }
-        var: {
+        '$color': {
           light: 'var(--tw-var-color-light)',
           dark: 'var(--tw-var-color-dark)',
         },

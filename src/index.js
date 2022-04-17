@@ -2,16 +2,16 @@ const plugin = require('tailwindcss/plugin')
 
 const tailwindcssVar = plugin(
   function ({ matchUtilities, theme }) {
-    if (theme('colors.var', {})) {
-      const variablesPalette = Object.keys(theme('colors.var', {}))
+    if (theme('colors.$color', {})) {
+      const variablesPalette = Object.keys(theme('colors.$color', {}))
 
       /*
-       * Set one-level variables like var-red, var-indigo, var-[pink] etc.
+       * Set one-level variables like $color-red, $color-indigo, $color-[pink] etc.
        */
 
       matchUtilities(
         {
-          var: (color) => {
+          '$color': (color) => {
             if (typeof color === 'string') {
               const output = {}
               variablesPalette.map((variant) => {
@@ -35,7 +35,7 @@ const tailwindcssVar = plugin(
       )
 
       /*
-       * Set two-level variables like var-50-red, var-100-indigo, var-50-[pink] etc.
+       * Set two-level variables like $color-50-red, $color-100-indigo, $color-50-[pink] etc.
        * We need to transform the color palette from format "color.shade" to "shade.color"
        * Examples:
        * - red.50 ... red.900  ->  50.red   ... 900.red
@@ -63,7 +63,7 @@ const tailwindcssVar = plugin(
       variablesPalette.map((variant) => {
         matchUtilities(
           {
-            [`var-${variant}`]: (value) => ({
+            [`$color-${variant}`]: (value) => ({
               [`--tw-var-color-${variant}`]: value,
             }),
           },
@@ -73,19 +73,16 @@ const tailwindcssVar = plugin(
     }
 
     /*
-     * Set spacing variables like var-spacing-2 etc. to be used with h-var, w-var, m-var etc.
+     * Set spacing variables like $spacing-2 etc. to be used with h-$spacing, w-$spacing, m-$spacing etc.
      *
-     * It would have been nicer to just use "var-2" instead of "var-spacing-2" to set the variable.
-     * Unfortunately this would collide with color variables when setting arbitrary values.
-     *
-     * Furthermore it would have been nicer to use "size" instead of "spacing",
+     * It would be nicer to use "size" instead of "spacing",
      * but I want to stick to the official Tailwind terminology.
      */
 
     if (theme('spacing.var', {})) {
       matchUtilities(
         {
-          'var-spacing': (spacing) => ({
+          '$spacing': (spacing) => ({
             '--tw-var-spacing': spacing,
           }),
         },
@@ -95,11 +92,10 @@ const tailwindcssVar = plugin(
   },
   {
     theme: {
-      extend: {
-        spacing: {
-          var: 'var(--tw-var-spacing)',
-        },
-      },
+      spacing: {
+        ...theme('spacing'),
+        '$spacing': 'var(--tw-var-spacing)',
+      }
     },
   }
 )

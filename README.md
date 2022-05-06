@@ -12,7 +12,7 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 
 1. Add package to your project e. g. `npm install @mariohamann/tailwindcss-var`.
 2. Add the plugin to your `tailwind.config.js` with `require('@mariohamann/tailwindcss-var')`.
-3. Add the following color variables to your `tailwind.config.js` (or change them to your needs as described [below](#modify-color-variables)):
+3. Add the following variables to your `tailwind.config.js` (or change them to your needs as described [below](#modify-color-variables)):
 
 ```js
 {
@@ -32,17 +32,20 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
           900: 'var(--tw-var-color-900)',
         },
       },
+      spacing: {
+        '$spacing': 'var(--tw-var-spacing)',
+      }
     },
   }
 }
 ```
 
-4. To test if everything works, write somewhere e. g. with `var-indigo text-var-500`.
+4. To test if everything works, write somewhere e. g. with `$color-indigo text-$color-500`.
 ## Examples
 ### Example 1: Basic color change
-Every button shares the same classes besides the class var-... which is filled by var-sky, var-green etc.
+Every button shares the same classes besides the class $color-... which is filled by $color-sky, $color-green etc.
 
-<img width="635" alt="Screen Shot 2022-02-06 at 22 46 04" src="https://user-images.githubusercontent.com/26542182/152702725-3a6b8821-fc90-4325-bed2-b184058b662f.png">
+<img width="635" alt="Screen Shot 2022-02-06 at 22 46 04" src="https://user-images.githubusercontent.com/26542182/167073577-8e512e0c-6d92-460f-9928-df7584f869db.png">
 
 ```html
 <button class="$color-... text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
@@ -50,23 +53,23 @@ Every button shares the same classes besides the class var-... which is filled b
 
 ### Example 2: Hierarchy and subvalues
 
-The buttons in the first, second and third row share the exact same styles, only the var-... of the parent changes. You can set new variable scopes everywhere. It's even possible to set new variables for only one variable variant (e. g. var-600-...) to refine its color or opacity.
+The buttons in the first, second and third row share the exact same styles, only the $color-... of the parent changes. You can set new variable scopes everywhere. It's even possible to set new variables for only one variable variant (e. g. $color-600-...) to refine its color or opacity.
 
-<img width="635" alt="Screen Shot 2022-02-06 at 22 45 44" src="https://user-images.githubusercontent.com/26542182/152702727-5fb169bc-5754-4651-9c46-06c59626a917.png">
+<img width="635" alt="Screen Shot 2022-02-06 at 22 45 44" src="https://user-images.githubusercontent.com/26542182/167073576-3eb094f0-5d71-4692-b258-3658484c4034.png">
 
 ```html
 <div class="$color-...">
   <button class="text-white bg-$color-600 border-$color-800 hover:bg-$color-700 focus:ring-$color-500 ...">...</button>
   <button class="text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
   <button class="text-$color-600 bg-$color-50 border-$color-50 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
-  <button class="$color-600-.../20 text-$color-600 bg-$color-50 border-$color-50 ..." Disabled>...</button>
+  <button class="$color-600-.../20 text-$color-600 bg-$color-50 border-$color-50 ..." disabled>...</button>
 </div>
 ```
 
 ### Example 3: Sizes
 The divs share the exact same styles, only the variable $spacing-... is filled by $spacing-8, $spacing-12 etc.
 
-<img width="635" alt="Screen Shot 2022-02-06 at 22 46 19" src="https://user-images.githubusercontent.com/26542182/152702724-7b52e18a-6821-42ca-add9-7c7320ee27b0.png">
+<img width="635" alt="Screen Shot 2022-02-06 at 22 46 19" src="https://user-images.githubusercontent.com/26542182/167073575-22322e03-9dc4-4f8d-b18b-07e61f8d95f2.png">
 
 ```html
 <div class="$spacing-... w-$spacing h-$spacing ...">...</button>
@@ -75,7 +78,7 @@ The divs share the exact same styles, only the variable $spacing-... is filled b
 ### Example 4: Arbitrary values
 You can use arbitrary values as well for setting as for getting variables. In the example height and roundedness resize perfectly with the element's width.
 
-<img width="635" alt="Screen Shot 2022-02-06 at 22 46 39" src="https://user-images.githubusercontent.com/26542182/152702722-e981a907-b94d-4cce-b7c2-1e5fdc92d93a.png">
+<img width="635" alt="Screen Shot 2022-02-06 at 22 46 39" src="https://user-images.githubusercontent.com/26542182/167073573-6c8425dd-56e9-4f88-8333-b0cb200b4c57.png">
 
 ## Modify color variables
 If you use Tailwind's default color definitions, your theme should be extended with the following (as described above):
@@ -103,7 +106,7 @@ If you use Tailwind's default color definitions, your theme should be extended w
 }
 ```
 
-If have other color definitions you want to use with variables, just extend the `var`-definitions in your theme e. g.: 
+If have other color definitions you want to use with variables, just extend the `$color`-definitions in your theme e. g.: 
 
 ```js
 {

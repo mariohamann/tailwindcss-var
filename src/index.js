@@ -79,7 +79,7 @@ const tailwindcssVar = plugin(
      * but I want to stick to the official Tailwind terminology.
      */
 
-    if (theme('spacing.var', {})) {
+    if (theme('spacing.$spacing', {})) {
       matchUtilities(
         {
           '$spacing': (spacing) => ({
@@ -90,14 +90,6 @@ const tailwindcssVar = plugin(
       )
     }
   },
-  {
-    theme: {
-      spacing: {
-        ...theme('spacing'),
-        '$spacing': 'var(--tw-var-spacing)',
-      }
-    },
-  }
 )
 
 module.exports = tailwindcssVar

@@ -45,7 +45,7 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 ### Example 1: Basic color change
 Every button shares the same classes besides the class $color-... which is filled by $color-sky, $color-green etc.
 
-<img width="800" alt="Screen Shot 2022-02-06 at 22 46 04" src="https://user-images.githubusercontent.com/26542182/167074119-78a15e41-a616-4c8c-98b0-4adb48a28f4e.png">
+![basic color change code example](https://user-images.githubusercontent.com/26542182/167074119-78a15e41-a616-4c8c-98b0-4adb48a28f4e.png)
 
 ```html
 <button class="$color-... text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
@@ -55,7 +55,7 @@ Every button shares the same classes besides the class $color-... which is fille
 
 The buttons in the first, second and third row share the exact same styles, only the $color-... of the parent changes. You can set new variable scopes everywhere. It's even possible to set new variables for only one variable variant (e. g. $color-600-...) to refine its color or opacity.
 
-<img width="800" alt="Screen Shot 2022-02-06 at 22 45 44" src="https://user-images.githubusercontent.com/26542182/167074118-f38d3034-da51-45b6-b282-ee55627a42e1.png">
+![hierarchy and subvalues code example](https://user-images.githubusercontent.com/26542182/167074118-f38d3034-da51-45b6-b282-ee55627a42e1.png)
 
 ```html
 <div class="$color-...">
@@ -69,7 +69,7 @@ The buttons in the first, second and third row share the exact same styles, only
 ### Example 3: Sizes
 The divs share the exact same styles, only the variable $spacing-... is filled by $spacing-8, $spacing-12 etc.
 
-<img width="800" alt="Screen Shot 2022-02-06 at 22 46 19" src="https://user-images.githubusercontent.com/26542182/167074116-9c294a1f-ecf5-4e5e-bd31-e6f809d3cea9.png">
+![size code example](https://user-images.githubusercontent.com/26542182/167074116-9c294a1f-ecf5-4e5e-bd31-e6f809d3cea9.png)
 
 ```html
 <div class="$spacing-... w-$spacing h-$spacing ...">...</button>
@@ -78,7 +78,7 @@ The divs share the exact same styles, only the variable $spacing-... is filled b
 ### Example 4: Arbitrary values
 You can use arbitrary values as well for setting as for getting variables. In the example height and roundedness resize perfectly with the element's width.
 
-<img width="800" alt="Screen Shot 2022-02-06 at 22 46 39" src="https://user-images.githubusercontent.com/26542182/167074114-c848e93a-64b8-49f3-bef4-ea924e3611cd.png">
+![arbitrary values example](https://user-images.githubusercontent.com/26542182/167074114-c848e93a-64b8-49f3-bef4-ea924e3611cd.png)
 
 ## Modify color variables
 If you use Tailwind's default color definitions, your theme should be extended with the following (as described above):

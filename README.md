@@ -6,20 +6,20 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 
 ## Please read ❤️
 - ⚠️ This plugin expects you to use Tailwind CSS >2.0 || >3.0 with JIT mode enabled.  (Tested only with >3.0)
-- This is the first version of the plugin. Please be aware of changes in future.
+- Although this plugin has version "1.x", this is still beta. (I switched to 1.x to mark breaking changes). Please be aware of changes in future. Neverthessless it's already tested in production and works well.
 - The plugin works best with the default color variations of Tailwind CSS (50, 100, ..., 800, 900). If you want to use other variable variations, you'll find some basic instructions below.
 ## Installation
 
 1. Add package to your project e. g. `npm install @mariohamann/tailwindcss-var`.
 2. Add the plugin to your `tailwind.config.js` with `require('@mariohamann/tailwindcss-var')`.
-3. Add the following color variables to your `tailwind.config.js` (or change them to your needs as described [below](#modify-color-variables)):
+3. Add the following variables to your `tailwind.config.js` (or change them to your needs as described [below](#modify-color-variables)):
 
 ```js
 {
   theme: {
     extend: {
       colors: {
-        var: {
+        '$color': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
           200: 'var(--tw-var-color-200)',
@@ -32,26 +32,28 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
           900: 'var(--tw-var-color-900)',
         },
       },
+      spacing: {
+        '$spacing': 'var(--tw-var-spacing)',
+      }
     },
   }
 }
 ```
 
-4. To test if everything works, add the following classes to an object with text `var-indigo text-var-500`.
+4. To test if everything works, add the following classes to an object with text `$color-indigo text-$color-500`.
 ## Examples
 ### Example 1: Basic color change
 
-1. Define your object once with text-var-600, bg-var-50 etc.
-2. Fill the variable (dynamically) with e. g. var-pink.
-3. text-var-600 renders as text-pink-600, bg-var-50 renders as bg-pink-50.
+1. Define your object once with text-$color-600, bg-$color-50 etc.
+2. Fill the variable (dynamically) with e. g. $color-pink.
+3. text-$color-600 renders as text-pink-600, bg-$color-50 renders as bg-pink-50.
 
-Try it yourself: https://play.tailwindcss.com/8IoJCK0r1t.
+Try it yourself: https://play.tailwindcss.com/N5naigtioP.
 
-![tailwindcss-var netlify app_ (8)](https://user-images.githubusercontent.com/26542182/152775017-8ef5048b-190b-4568-9b8a-1bbdeed71a8b.png)
-
+![basic color change code example](https://user-images.githubusercontent.com/26542182/167074119-78a15e41-a616-4c8c-98b0-4adb48a28f4e.png)
 
 ```html
-<button class="var-... text-var-600 bg-var-50 border-var-600 hover:bg-var-100 focus:ring-var-500 ...">...</button>
+<button class="$color-... text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
 ```
 
 ### Example 2: Hierarchy and subvalues
@@ -60,17 +62,17 @@ Try it yourself: https://play.tailwindcss.com/8IoJCK0r1t.
 - You can overwrite variables in every child.
 - You can overwrite single variants of the variable with other colors or opacities.
 
-Try it yourself: https://play.tailwindcss.com/fQPslGpLCw
+Try it yourself: https://play.tailwindcss.com/dConxwIewE
 
-![tailwindcss-var netlify app_ (7)](https://user-images.githubusercontent.com/26542182/152775079-41abeb53-c3f5-4cae-a187-ca14bf189695.png)
+![hierarchy and subvalues code example](https://user-images.githubusercontent.com/26542182/167074118-f38d3034-da51-45b6-b282-ee55627a42e1.png)
 
 
 ```html
-<div class="var-...">
-  <button class="text-white bg-var-600 border-var-800 hover:bg-var-700 focus:ring-var-500 ...">...</button>
-  <button class="text-var-600 bg-var-50 border-var-600 hover:bg-var-100 focus:ring-var-500 ...">...</button>
-  <button class="text-var-600 bg-var-50 border-var-50 hover:bg-var-100 focus:ring-var-500 ...">...</button>
-  <button class="var-600-.../20 text-var-600 bg-var-50 border-var-50 ..." Disabled>...</button>
+<div class="$color-...">
+  <button class="text-white bg-$color-600 border-$color-800 hover:bg-$color-700 focus:ring-$color-500 ...">...</button>
+  <button class="text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
+  <button class="text-$color-600 bg-$color-50 border-$color-50 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
+  <button class="$color-600-.../20 text-$color-600 bg-$color-50 border-$color-50 ..." disabled>...</button>
 </div>
 ```
 
@@ -79,23 +81,22 @@ Try it yourself: https://play.tailwindcss.com/fQPslGpLCw
 - Besides color variables you can set variables for spacings.
 - You can use the variables for width, height, margins etc.
 
-Try it yourself: https://play.tailwindcss.com/ojWbNZGdMY
+Try it yourself: https://play.tailwindcss.com/wGAq28JlDL
 
-![tailwindcss-var netlify app_ (5)](https://user-images.githubusercontent.com/26542182/152775109-7f923575-36b6-4d88-91ee-7e242ec0e732.png)
+![size code example](https://user-images.githubusercontent.com/26542182/167074116-9c294a1f-ecf5-4e5e-bd31-e6f809d3cea9.png)
 
 
 ```html
-<div class="var-spacing-... w-var h-var ...">...</button>
+<div class="$spacing-... w-$spacing h-$spacing ...">...</button>
 ```
 
 ### Example 4: Arbitrary values
 - You can set and use arbitrary values for both spacings and colors.
 - In the example height and roundedness resize perfectly with the width of the object.
 
-Try it yourself: https://play.tailwindcss.com/ETCMSUlWiv
+Try it yourself: https://play.tailwindcss.com/0DDoIx5AvB
 
-![tailwindcss-var netlify app_ (6)](https://user-images.githubusercontent.com/26542182/152775129-7e00e1e4-cb96-485d-bc28-40c6001bde6b.png)
-
+![arbitrary values example](https://user-images.githubusercontent.com/26542182/167074114-c848e93a-64b8-49f3-bef4-ea924e3611cd.png)
 
 ## Modify color variables
 If you use Tailwind's default color definitions, your theme should be extended with the following (as described above):
@@ -105,7 +106,7 @@ If you use Tailwind's default color definitions, your theme should be extended w
   theme: {
     extend: {
       colors: {
-        var: {
+        '$color': {
           50: 'var(--tw-var-color-50)',
           100: 'var(--tw-var-color-100)',
           200: 'var(--tw-var-color-200)',
@@ -123,7 +124,7 @@ If you use Tailwind's default color definitions, your theme should be extended w
 }
 ```
 
-If you have other color definitions which you want to use with variables, just extend the `var`-definitions in your theme e. g.: 
+If you have other color definitions which you want to use with variables, just change the `$color`-definitions in your theme e. g.: 
 
 ```js
 {
@@ -138,7 +139,7 @@ If you have other color definitions which you want to use with variables, just e
           light: 'FF88FF',
           dark: '#FF00FF',
         }
-        var: {
+        '$color': {
           light: 'var(--tw-var-color-light)',
           dark: 'var(--tw-var-color-dark)',
         },

@@ -52,10 +52,6 @@ Try it yourself: https://play.tailwindcss.com/N5naigtioP.
 
 ![basic color change code example](https://user-images.githubusercontent.com/26542182/167074119-78a15e41-a616-4c8c-98b0-4adb48a28f4e.png)
 
-```html
-<button class="$color-... text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
-```
-
 ### Example 2: Hierarchy and subvalues
 
 - Variables are automatically consumable by every child element.
@@ -66,16 +62,6 @@ Try it yourself: https://play.tailwindcss.com/dConxwIewE
 
 ![hierarchy and subvalues code example](https://user-images.githubusercontent.com/26542182/167074118-f38d3034-da51-45b6-b282-ee55627a42e1.png)
 
-
-```html
-<div class="$color-...">
-  <button class="text-white bg-$color-600 border-$color-800 hover:bg-$color-700 focus:ring-$color-500 ...">...</button>
-  <button class="text-$color-600 bg-$color-50 border-$color-600 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
-  <button class="text-$color-600 bg-$color-50 border-$color-50 hover:bg-$color-100 focus:ring-$color-500 ...">...</button>
-  <button class="$color-600-.../20 text-$color-600 bg-$color-50 border-$color-50 ..." disabled>...</button>
-</div>
-```
-
 ### Example 3: Sizes
 
 - Besides color variables you can set variables for spacings.
@@ -85,10 +71,6 @@ Try it yourself: https://play.tailwindcss.com/wGAq28JlDL
 
 ![size code example](https://user-images.githubusercontent.com/26542182/167074116-9c294a1f-ecf5-4e5e-bd31-e6f809d3cea9.png)
 
-
-```html
-<div class="$spacing-... w-$spacing h-$spacing ...">...</button>
-```
 
 ### Example 4: Arbitrary values
 - You can set and use arbitrary values for both spacings and colors.

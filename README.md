@@ -34,7 +34,7 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 Try it yourself: https://play.tailwindcss.com/BqEnApCXDd.
 
 ![basic color change code example](https://user-images.githubusercontent.com/26542182/221135730-cc2f02c0-37d2-4215-91ba-7d14dbc9e86b.png)
-_(The image shows an older version of the plugin. The new version uses "var" as a prefix instead of de dollar sign.)_
+_(The image shows an older version of the plugin. The new version uses "var" as a prefix instead of the dollar sign.)_
 
 ### Example 2: Hierarchy and subvalues
 

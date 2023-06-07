@@ -105,11 +105,15 @@ const tailwindcssVar = plugin(
             700: 'var(--tw-varcolor-700)',
             800: 'var(--tw-varcolor-800)',
             900: 'var(--tw-varcolor-900)',
+            950: 'var(--tw-varcolor-950)',
           },
         },
         spacing: {
           varspacing: 'var(--tw-varspacing)',
         },
+        fontSize: {
+          varspacing: 'var(--tw-varspacing)',
+        }
       },
     },
   }

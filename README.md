@@ -31,10 +31,9 @@ For live-examples check out [mariohamann.de/tailwindcss-var](https://mariohamann
 2. Fill the variable (dynamically) with e. g. varcolor-pink.
 3. text-varcolor-600 renders as text-pink-600, bg-varcolor-50 renders as bg-pink-50.
 
-Try it yourself: https://play.tailwindcss.com/BqEnApCXDd.
+Try it yourself: [https://play.tailwindcss.com/BqEnApCXDd](https://play.tailwindcss.com/0r55inbvBq).
 
-![basic color change code example](https://user-images.githubusercontent.com/26542182/221135730-cc2f02c0-37d2-4215-91ba-7d14dbc9e86b.png)
-_(The image shows an older version of the plugin. The new version uses "var" as a prefix instead of the dollar sign.)_
+![basic color change code example](https://github.com/mariohamann/tailwindcss-var/assets/26542182/6b13ee4c-83a2-43c1-ab29-fb848ee23c6d)
 
 ### Example 2: Hierarchy and subvalues
 
